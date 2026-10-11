@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from modeltranslation.admin import TranslationAdmin
 
+
 from .models import (
     SiteConfig,
     Pagina,
