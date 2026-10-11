@@ -9,7 +9,8 @@ django-cloudinary-storage==0.3.0
 django-js-asset==4.2.0
 django-modeltranslation==0.20.6
 idna==3.18
-modeltranslation==0.25
+
+
 pillow==12.1.1
 psycopg==3.2.10
 psycopg-binary==3.2.10
