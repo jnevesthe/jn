@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ post.titulo }} — {{ site.nome_site }}{% endblock %}
+
+{% block meta_description %}{{ post.resumo|default:post.titulo|truncatechars:160 }}{% endblock %}
+
+
+{% block canonical %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+
+
+{% block extra_head %}
+<meta name="description" content="{{ post.resumo|default:post.titulo|truncatechars:160 }}">
+<meta property="og:title" content="{{ post.titulo }}">
+<meta property="og:description" content="{{ post.resumo|default:post.titulo|truncatechars:160 }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+{% if post.imagem_capa %}<meta property="og:image" content="{{ post.imagem_capa.url }}">{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.titulo|escapejs }}",
+  "description": "{{ post.resumo|default:post.titulo|truncatechars:160|escapejs }}",
+  {% if post.imagem_capa %}"image": "{{ post.imagem_capa.url }}",{% endif %}
+  "datePublished": "{{ post.data_publicacao|date:'c' }}",
+  "dateModified": "{{ post.atualizado_em|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "name": "Josemar Neves"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JN Portfolio"
+  }
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  .post-hero { padding: 60px 24px 0; }
+
+  .breadcrumb {
+    max-width: 780px;
+    margin: 0 auto 24px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a { color: var(--blue-glow); }
+  .breadcrumb a:hover { color: var(--blue-elec); }
+
+  .post-header {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 16px;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+
+  .post-meta .cat {
+    color: var(--blue-glow);
+  }
+
+  .post-meta .cat:hover { color: var(--blue-elec); }
+
+  .post-capa {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .post-capa img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .post-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+    font-size: 1.02rem;
+  }
+
+  .post-body p { color: #c4c7d1; margin-bottom: 18px; }
+  .post-body h2 { font-size: 1.4rem; margin: 36px 0 14px; }
+  .post-body h3 { font-size: 1.15rem; margin: 26px 0 10px; }
+  .post-body ul, .post-body ol { margin: 0 0 18px 20px; color: #c4c7d1; }
+
+  .post-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .post-body a {
+    color: var(--blue-glow);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-body a:hover { color: var(--blue-elec); }
+
+  .post-body pre, .post-body code {
+    font-family: var(--font-mono);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .post-body pre { padding: 16px; overflow-x: auto; margin: 20px 0; }
+  .post-body code { padding: 2px 6px; font-size: 0.85em; }
+
+  .post-tags {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .post-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--blue-glow);
+    background: rgba(61, 90, 254, 0.08);
+    border: 1px solid rgba(61, 90, 254, 0.25);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 700px) {
+    .post-hero { padding: 40px 20px 0; }
+    .post-body { padding: 10px 20px 40px; }
+    .post-tags { padding: 0 20px 70px; }
+  }
+</style>
+
+<div class="post-hero">
+  <p class="breadcrumb">
+    <a href="{% url 'home' %}">{% trans "home" %}</a> / <a href="{% url 'blog' %}">{% trans "blog" %}</a> / {{ post.titulo }}
+  </p>
+
+  <div class="post-header">
+    <h1>{{ post.titulo }}</h1>
+    <p class="post-meta">
+      {% if post.categoria %}
+      <a href="{% url 'blog_categoria' post.categoria.slug %}" class="cat">{{ post.categoria.nome }}</a> ·
+      {% endif %}
+      {{ post.data_publicacao|date:"d/m/Y" }}
+      {% if post.atualizado_em.date != post.data_publicacao.date %}
+      · {% trans "atualizado em" %} {{ post.atualizado_em|date:"d/m/Y" }}
+      {% endif %}
+    </p>
+  </div>
+</div>
+
+{% if post.imagem_capa %}
+<div class="post-capa">
+  <img src="{{ post.imagem_capa.url }}" alt="{{ post.titulo }} - JN Portfolio">
+</div>
+{% endif %}
+
+<div class="post-body">
+  {{ post.conteudo_html|safe }}
+</div>
+
+{% if post.tags.all %}
+<div class="post-tags">
+  {% for tag in post.tags.all %}<span>{{ tag.nome }}</span>{% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% load portfolio_extras i18n %}
+
+{% block title %}{{ projeto.nome }} — {{ site.nome_site }}{% endblock %}
+
+{% block meta_description %}{{ projeto.resumo|default:projeto.nome|truncatechars:160 }}{% endblock %}
+
+{% block canonical %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="{{ projeto.descricao_html|striptags|truncatewords:25 }}">
+<meta property="og:title" content="{{ projeto.nome }}">
+<meta property="og:description" content="{{ projeto.descricao_html|striptags|truncatewords:25 }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+{% if projeto.imagem %}<meta property="og:image" content="{{ projeto.imagem.url }}">{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .projeto-hero {
+    padding: 60px 24px 0;
+  }
+
+  .breadcrumb {
+    max-width: 1140px;
+    margin: 0 auto 24px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a { color: var(--blue-glow); }
+  .breadcrumb a:hover { color: var(--blue-elec); }
+
+  .projeto-header {
+    max-width: 1140px;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .projeto-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    max-width: 700px;
+  }
+
+  .projeto-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .projeto-imagem {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .projeto-imagem img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .projeto-body {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+  }
+
+  .projeto-conteudo {
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .projeto-conteudo h2 {
+    font-size: 1.4rem;
+    margin: 32px 0 14px;
+  }
+
+  .projeto-conteudo p {
+    color: #c4c7d1;
+    margin-bottom: 16px;
+  }
+
+  .projeto-conteudo img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .projeto-conteudo pre, .projeto-conteudo code {
+    font-family: var(--font-mono);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .projeto-conteudo pre {
+    padding: 16px;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .projeto-conteudo code {
+    padding: 2px 6px;
+    font-size: 0.85em;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .projeto-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .ficha {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .ficha-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  .ficha-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .ficha-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--blue-glow);
+    background: rgba(61, 90, 254, 0.08);
+    border: 1px solid rgba(61, 90, 254, 0.25);
+    padding: 4px 9px;
+    border-radius: 4px;
+  }
+
+  .ficha-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .ficha-links .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ficha-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 860px) {
+    .projeto-body {
+      grid-template-columns: 1fr;
+    }
+    .projeto-sidebar {
+      position: static;
+    }
+  }
+</style>
+
+<div class="projeto-hero">
+  <p class="breadcrumb">
+    <a href="{% url 'home' %}">{% trans "home" %}</a> / <a href="{% url 'projetos' %}">{% trans "projetos" %}</a> / {{ projeto.nome }}
+  </p>
+
+  <div class="projeto-header">
+    <div>
+      <p class="eyebrow">{% trans "projeto" %}</p>
+      <h1>{{ projeto.nome }}</h1>
+    </div>
+    <div class="projeto-actions">
+      {% if projeto.link_externo %}
+      <a href="{{ projeto.link_externo }}" target="_blank" rel="noopener" class="btn btn-primary">{% trans "ver ao vivo" %}</a>
+      {% endif %}
+      {% if projeto.link_github %}
+      <a href="{{ projeto.link_github }}" target="_blank" rel="noopener" class="btn btn-ghost">{% trans "código-fonte" %}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if projeto.imagem %}
+<div class="projeto-imagem">
+  <img src="{{ projeto.imagem.url }}" alt="{{ projeto.nome }}">
+</div>
+{% endif %}
+
+<div class="projeto-body">
+  <div class="projeto-conteudo">
+    {{ projeto.descricao_html|safe }}
+  </div>
+
+  <aside class="projeto-sidebar">
+    <div class="ficha">
+      <p class="ficha-label">{% trans "tecnologias" %}</p>
+      <div class="ficha-tags">
+        {% for tech in projeto.tecnologias|split_tags %}
+        <span>{{ tech }}</span>
+        {% endfor %}
+      </div>
+
+      {% if projeto.link_externo or projeto.link_github %}
+      <div class="ficha-links">
+        {% if projeto.link_externo %}<a href="{{ projeto.link_externo }}" target="_blank" rel="noopener" class="btn btn-primary">{% trans "ver ao vivo" %}</a>{% endif %}
+        {% if projeto.link_github %}<a href="{{ projeto.link_github }}" target="_blank" rel="noopener" class="btn btn-ghost">github</a>{% endif %}
+      </div>
+      {% endif %}
+
+      <p class="ficha-meta">
+        {{ projeto.criado_em|date:"d/m/Y" }}
+        {% if projeto.atualizado_em.date != projeto.criado_em.date %}
+        · {% trans "atualizado em" %} {{ projeto.atualizado_em|date:"d/m/Y" }}
+        {% endif %}
+      </p>
+    </div>
+  </aside>
+</div>
+
+{% endblock %}

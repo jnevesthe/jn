@@ -1,0 +1,658 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-11 00:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\aviso_legal.html:4 .\templates\aviso_legal.html:56
+#: .\templates\aviso_legal.html:60
+msgid "Aviso Legal"
+msgstr "Aviso legal"
+
+#: .\templates\aviso_legal.html:6
+#, python-format
+msgid ""
+"Aviso legal sobre o uso de esquemas elétricos, projetos com Arduino/ESP32 e "
+"códigos partilhados em %(nome_site)s."
+msgstr "Aviso legal sobre el uso de esquemas eléctricos, proyectos con Arduino/ESP32 y código compartido en %(nome_site)s."
+
+#: .\templates\aviso_legal.html:55
+msgid "legal"
+msgstr "Legal"
+
+#: .\templates\aviso_legal.html:62
+msgid ""
+"Todo o conteúdo técnico partilhado neste site — incluindo esquemas "
+"elétricos, montagens com Arduino, ESP32\n"
+"    ou outros microcontroladores, códigos-fonte e instruções de projetos — "
+"tem fins exclusivamente\n"
+"    <strong>didáticos e informativos</strong>. Destina-se a ajudar quem está "
+"a aprender eletrónica e programação,\n"
+"    não substituindo a formação técnica profissional nem o acompanhamento "
+"presencial em contextos que o exijam."
+msgstr "Todo el contenido técnico compartido en este sitio, incluidos esquemas eléctricos, montajes con Arduino y ESP32 u otros microcontroladores, código fuente e instrucciones de proyectos, tiene fines exclusivamente <strong>educativos e informativos</strong>. Su objetivo es ayudar a quienes están aprendiendo electrónica y programación; no sustituye la formación técnica profesional ni la supervisión presencial cuando sea necesaria."
+
+#: .\templates\aviso_legal.html:68
+#, python-format
+msgid ""
+"A reprodução de qualquer projeto, montagem ou código aqui apresentado é "
+"feita <strong>por conta e risco do\n"
+"    leitor</strong>. %(nome_site)s e o autor deste conteúdo não se "
+"responsabilizam por curtos-circuitos,\n"
+"    danos em componentes ou equipamentos, ferimentos, incêndios ou quaisquer "
+"outros acidentes ou prejuízos\n"
+"    resultantes da aplicação, incorreta ou não, das informações partilhadas."
+msgstr "La reproducción de cualquier proyecto, montaje o código presentado aquí se realiza <strong>bajo la responsabilidad del lector</strong>. %(nome_site)s y el autor de este contenido no se hacen responsables de cortocircuitos, daños en componentes o equipos, lesiones, incendios ni otros accidentes o perjuicios derivados del uso, correcto o incorrecto, de la información compartida."
+
+#: .\templates\aviso_legal.html:74
+msgid ""
+"Recomenda-se sempre que os leitores sigam as boas práticas de segurança "
+"elétrica, verifiquem as\n"
+"    especificações técnicas dos componentes utilizados e, em caso de dúvida, "
+"procurem orientação de um\n"
+"    profissional qualificado antes de reproduzir qualquer projeto."
+msgstr "Se recomienda seguir siempre las buenas prácticas de seguridad eléctrica, comprobar las especificaciones técnicas de los componentes utilizados y, en caso de duda, consultar a un profesional cualificado antes de reproducir cualquier proyecto."
+
+#: .\templates\base.html:469
+msgid ""
+"Usamos cookies para melhorar a tua experiência e para publicidade "
+"personalizada (Google AdSense e parceiros)."
+msgstr "Usamos cookies para mejorar tu experiencia y ofrecer publicidad personalizada (Google AdSense y sus socios)."
+
+#: .\templates\base.html:470
+msgid "Consulta a nossa"
+msgstr "Consulta nuestra"
+
+#: .\templates\base.html:471 .\templates\base.html:612
+#: .\templates\base.html:650
+msgid "política de privacidade"
+msgstr "política de privacidad"
+
+#: .\templates\base.html:472
+msgid "e a"
+msgstr "y la"
+
+#: .\templates\base.html:473 .\templates\base.html:613
+#: .\templates\base.html:651
+msgid "política de cookies"
+msgstr "política de cookies"
+
+#: .\templates\base.html:474
+msgid "para saberes mais."
+msgstr "para saber más."
+
+#: .\templates\base.html:477
+msgid "Recusar"
+msgstr "Rechazar"
+
+#: .\templates\base.html:478
+msgid "Aceitar"
+msgstr "Aceptar"
+
+#: .\templates\base.html:599 .\templates\post.html:163
+#: .\templates\projeto_detail.html:194
+msgid "home"
+msgstr "Inicio"
+
+#: .\templates\base.html:600
+msgid "sobre"
+msgstr "Sobre mí"
+
+#: .\templates\base.html:601 .\templates\projeto_detail.html:194
+msgid "projetos"
+msgstr "Proyectos"
+
+#: .\templates\base.html:602 .\templates\base.html:603
+#: .\templates\blog.html:202 .\templates\post.html:163
+msgid "blog"
+msgstr "Blog"
+
+#: .\templates\base.html:603
+msgid "categorias"
+msgstr "Categorías"
+
+#: .\templates\base.html:604
+msgid "galeria"
+msgstr "Galería"
+
+#: .\templates\base.html:605 .\templates\base.html:649
+#: .\templates\contato.html:251
+msgid "contato"
+msgstr "Contacto"
+
+#: .\templates\base.html:608
+msgid "mais"
+msgstr "Más"
+
+#: .\templates\base.html:611 .\templates\curriculo.html:130
+msgid "currículo"
+msgstr "Currículum"
+
+#: .\templates\base.html:614 .\templates\base.html:652
+msgid "termos de uso"
+msgstr "Términos de uso"
+
+#: .\templates\base.html:615 .\templates\base.html:653
+msgid "aviso legal"
+msgstr "Aviso legal"
+
+#: .\templates\base.html:631
+msgid "Abrir menu"
+msgstr "Abrir menú"
+
+#: .\templates\base.html:646
+msgid "todos os direitos reservados"
+msgstr "todos los derechos reservados"
+
+#: .\templates\blog.html:4 .\templates\blog_categoria.html:4
+#: .\templates\categorias.html:4
+msgid "Blog"
+msgstr "Blog"
+
+#: .\templates\blog.html:4 .\templates\galeria.html:4
+#: .\templates\projetos.html:4
+msgid "Página"
+msgstr "Página"
+
+#: .\templates\blog.html:6
+#, python-format
+msgid ""
+"Artigos sobre eletrónica, programação e desenvolvimento web por "
+"%(nome_site)s."
+msgstr "Artículos sobre electrónica, programación y desarrollo web de %(nome_site)s."
+
+#: .\templates\blog.html:203
+msgid "Artigos"
+msgstr "Artículos"
+
+#: .\templates\blog.html:204
+msgid "Anotações sobre hardware, firmware e os bastidores dos projetos."
+msgstr "Notas sobre hardware, firmware y el detrás de escena de los proyectos."
+
+#: .\templates\blog.html:248
+msgid "nenhum post publicado ainda."
+msgstr "Todavía no se han publicado entradas."
+
+#: .\templates\blog_categoria.html:5
+#, python-format
+msgid "Artigos sobre %(nome)s — JN Portfolio."
+msgstr "Artículos sobre %(nome)s — JN Portfolio."
+
+#: .\templates\blog_categoria.html:161 .\templates\categorias.html:77
+msgid "todos os posts"
+msgstr "todas las entradas"
+
+#: .\templates\blog_categoria.html:186
+msgid "ler artigo"
+msgstr "leer artículo"
+
+#: .\templates\blog_categoria.html:192
+msgid "nenhum post nesta categoria ainda."
+msgstr "Todavía no hay entradas en esta categoría."
+
+#: .\templates\categorias.html:4 .\templates\categorias.html:78
+msgid "Categorias"
+msgstr "Categorías"
+
+#: .\templates\categorias.html:6
+msgid ""
+"Categorias de artigos do blog JN Portfolio — eletrónica, programação e "
+"projetos práticos."
+msgstr "Categorías de artículos del blog JN Portfolio sobre electrónica, programación y proyectos prácticos."
+
+#: .\templates\categorias.html:79
+msgid "Navegue pelos artigos organizados por tema."
+msgstr "Explora los artículos organizados por tema."
+
+#: .\templates\categorias.html:88
+#, python-format
+msgid "%(post_count)s post"
+msgid_plural "%(post_count)s posts"
+msgstr[0] "%(post_count)s entrada"
+msgstr[1] "%(post_count)s entradas"
+
+#: .\templates\categorias.html:93
+msgid "nenhuma categoria criada ainda."
+msgstr "Todavía no se ha creado ninguna categoría."
+
+#: .\templates\contato.html:3
+msgid "Contato"
+msgstr "Contacto"
+
+#: .\templates\contato.html:4
+#, python-format
+msgid ""
+"Entre em contacto com %(nome_site)s — eletrónica, automação e "
+"desenvolvimento web."
+msgstr "Ponte en contacto con %(nome_site)s para hablar de electrónica, automatización y desarrollo web."
+
+#: .\templates\contato.html:252
+msgid "Vamos conversar"
+msgstr "Hablemos"
+
+#: .\templates\contato.html:253
+msgid ""
+"Tem um projeto em mente, uma pergunta técnica ou só quer trocar uma ideia "
+"sobre hardware? Manda uma mensagem."
+msgstr "¿Tienes un proyecto en mente, una pregunta técnica o simplemente quieres charlar sobre hardware? Envíame un mensaje."
+
+#: .\templates\contato.html:267
+msgid "Nome"
+msgstr "Nombre"
+
+#: .\templates\contato.html:273
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+#: .\templates\contato.html:279
+msgid "Mensagem"
+msgstr "Mensaje"
+
+#: .\templates\contato.html:285
+msgid "enviar mensagem"
+msgstr "Enviar mensaje"
+
+#: .\templates\curriculo.html:4
+msgid "Currículo"
+msgstr "Currículum"
+
+#: .\templates\curriculo.html:125
+#, python-format
+msgid "Foto de Josemar Neves — %(site_name)s"
+msgstr "Foto de Josemar Neves — %(site_name)s"
+
+#: .\templates\curriculo.html:143
+msgid "baixar em PDF"
+msgstr "Descargar PDF"
+
+#: .\templates\curriculo.html:145 .\templates\home.html:396
+msgid "entrar em contato"
+msgstr "Contactar"
+
+#: .\templates\galeria.html:4 .\templates\galeria.html:157
+#: .\templates\galeria_detail.html:4 .\templates\home.html:497
+msgid "Galeria"
+msgstr "Galería"
+
+#: .\templates\galeria.html:6
+#, python-format
+msgid ""
+"Galeria de fotos e projetos de %(nome_site)s — bancada, protótipos e o "
+"processo por trás de cada projeto."
+msgstr "Galería de fotos y proyectos de %(nome_site)s: banco de trabajo, prototipos y el proceso detrás de cada proyecto."
+
+#: .\templates\galeria.html:156
+msgid "portfólio visual"
+msgstr "Portafolio visual"
+
+#: .\templates\galeria.html:158
+msgid ""
+"Bancada, protótipos, placas montadas e o processo por trás de cada projeto."
+msgstr "Banco de trabajo, prototipos, placas ensambladas y el proceso detrás de cada proyecto."
+
+#: .\templates\galeria.html:194
+msgid "nenhuma imagem na galeria ainda."
+msgstr "Todavía no hay imágenes en la galería."
+
+#: .\templates\galeria_detail.html:96
+msgid "voltar à galeria"
+msgstr "volver a la galería"
+
+#: .\templates\galeria_detail.html:121
+msgid "anterior"
+msgstr "anterior"
+
+#: .\templates\galeria_detail.html:127
+msgid "seguinte"
+msgstr "siguiente"
+
+#: .\templates\home.html:391
+msgid "disponível para novos projetos"
+msgstr "Disponible para nuevos proyectos"
+
+#: .\templates\home.html:392
+msgid ""
+"Construindo <span class=\"accent\">hardware</span> e software que conversam "
+"entre si."
+msgstr "Construyo <span class=\"accent\">hardware</span> y software que se comunican entre sí."
+
+#: .\templates\home.html:395
+msgid "ver projetos"
+msgstr "Ver proyectos"
+
+#: .\templates\home.html:404
+msgid "Projetos recentes"
+msgstr "Proyectos recientes"
+
+#: .\templates\home.html:405
+msgid "ver todos"
+msgstr "Ver todos"
+
+#: .\templates\home.html:419
+msgid "Nenhum projeto publicado ainda."
+msgstr "Todavía no se ha publicado ningún proyecto."
+
+#: .\templates\home.html:428
+msgid "Sobre o JN Portfolio"
+msgstr "Sobre JN Portfolio"
+
+#: .\templates\home.html:432
+msgid ""
+"O <strong style=\"color: var(--text);\">JN Portfolio</strong> é o espaço "
+"onde documento projetos práticos\n"
+"        de eletrónica e automação, e partilho o que vou aprendendo em "
+"programação e desenvolvimento web.\n"
+"        Sou <strong style=\"color: var(--text);\">Josemar Neves</strong>, "
+"Técnico de Eletrónica e Telecomunicações\n"
+"        e desenvolvedor de software, baseado em Luanda, Angola — e este site "
+"nasceu da vontade de mostrar,\n"
+"        de forma transparente, o processo por trás de cada montagem: do "
+"circuito ao código."
+msgstr "<strong style=\"color: var(--text);\">JN Portfolio</strong> es el espacio donde documento proyectos prácticos\n        de electrónica y automatización, y comparto lo que voy aprendiendo sobre programación y desarrollo web.\n        Soy <strong style=\"color: var(--text);\">Josemar Neves</strong>, técnico en electrónica y telecomunicaciones\n        y desarrollador de software, residente en Luanda, Angola. Este sitio nació de las ganas de mostrar\n        con transparencia el proceso detrás de cada montaje: del circuito al código."
+
+#: .\templates\home.html:442
+#, python-format
+msgid ""
+"Aqui vais encontrar <a href=\"%(projetos_url)s\" style=\"color: var(--blue-"
+"glow);\">projetos completos</a>\n"
+"        com Arduino e ESP32 (sensores, automação, controlo de motores), "
+"artigos sobre\n"
+"        <a href=\"%(blog_url)s\" style=\"color: var(--blue-glow);"
+"\">programação</a> (Python, Java, C++) e\n"
+"        eletrónica, além de uma <a href=\"%(galeria_url)s\" style=\"color: "
+"var(--blue-glow);\">galeria</a>\n"
+"        com fotos reais de bancada, protótipos e o desenvolvimento passo a "
+"passo de cada ideia."
+msgstr "Aquí encontrarás <a href=\"%(projetos_url)s\" style=\"color: var(--blue-glow);\">proyectos completos</a>\n        con Arduino y ESP32 (sensores, automatización y control de motores), artículos sobre\n        <a href=\"%(blog_url)s\" style=\"color: var(--blue-glow);\">programación</a> (Python, Java, C++) y\n        electrónica, además de una <a href=\"%(galeria_url)s\" style=\"color: var(--blue-glow);\">galería</a>\n        con fotos reales del banco de trabajo, prototipos y el desarrollo paso a paso de cada idea."
+
+#: .\templates\home.html:451
+#, python-format
+msgid ""
+"O objetivo é simples: criar conteúdo técnico útil e honesto para quem está a "
+"começar em eletrónica\n"
+"        embarcada ou programação, e para quem gosta de acompanhar projetos "
+"reais — sem enrolação, direto ao\n"
+"        que funciona (e ao que não funcionou à primeira). Queres saber mais "
+"sobre o meu percurso?\n"
+"        Visita a página <a href=\"%(sobre_url)s\" style=\"color: var(--blue-"
+"glow);\">Sobre</a> ou o meu\n"
+"        <a href=\"%(curriculo_url)s\" style=\"color: var(--blue-glow);"
+"\">Currículo</a>."
+msgstr "El objetivo es sencillo: crear contenido técnico útil y honesto para quienes empiezan en electrónica\n        embebida o programación, y para quienes disfrutan siguiendo proyectos reales, sin rodeos y centrándonos en\n        lo que funciona (y en lo que no funcionó a la primera). ¿Quieres saber más sobre mi trayectoria?\n        Visita la página <a href=\"%(sobre_url)s\" style=\"color: var(--blue-glow);\">Sobre mí</a> o consulta mi\n        <a href=\"%(curriculo_url)s\" style=\"color: var(--blue-glow);\">currículum</a>."
+
+#: .\templates\home.html:458
+msgid "Também publico conteúdo em vídeo — segue o canal"
+msgstr "También publico videos: sigue el canal"
+
+#: .\templates\home.html:459
+msgid "Arduino Tech X no YouTube"
+msgstr "Arduino Tech X en YouTube"
+
+#: .\templates\home.html:459
+msgid "Arduino Tech X"
+msgstr "Arduino Tech X"
+
+#: .\templates\home.html:460
+msgid "e o"
+msgstr "y el"
+
+#: .\templates\home.html:462
+#, python-format
+msgid ""
+"para ver os projetos em ação. Tens uma dúvida, sugestão ou queres trocar "
+"ideias?\n"
+"        <a href=\"%(contato_url)s\" style=\"color: var(--blue-glow);\">Entra "
+"em contacto</a>."
+msgstr "para ver los proyectos en acción. ¿Tienes alguna duda o sugerencia, o quieres intercambiar ideas?\n        <a href=\"%(contato_url)s\" style=\"color: var(--blue-glow);\">Ponte en contacto</a>."
+
+#: .\templates\home.html:473
+msgid "Últimos posts"
+msgstr "Últimas entradas"
+
+#: .\templates\home.html:474
+msgid "ver blog"
+msgstr "Ver el blog"
+
+#: .\templates\home.html:488
+msgid "Nenhum post publicado ainda."
+msgstr "Todavía no se han publicado entradas."
+
+#: .\templates\home.html:498
+msgid "ver tudo"
+msgstr "Ver todo"
+
+#: .\templates\josemar_neves.html:4 .\templates\josemar_neves.html:137
+msgid "Técnico de Eletrónica e Telecomunicações & Web Developer"
+msgstr "Técnico en Electrónica y Telecomunicaciones & Desarrollador web"
+
+#: .\templates\josemar_neves.html:135
+msgid "perfil"
+msgstr "Perfil"
+
+#: .\templates\josemar_neves.html:142
+msgid "Sobre mim"
+msgstr "Sobre mí"
+
+#: .\templates\josemar_neves.html:144
+msgid ""
+"Sou Josemar Neves, Técnico de Eletrónica e Telecomunicações e programador, "
+"baseado em Luanda, Angola.\n"
+"    Trabalho na intersecção entre hardware e software — de um lado, projetos "
+"com Arduino e ESP32 (sensores,\n"
+"    automação, sistemas embarcados); do outro, desenvolvimento web com "
+"Django, Flask e PostgreSQL, com\n"
+"    projetos publicados em produção na Vercel."
+msgstr "Soy Josemar Neves, técnico en electrónica y telecomunicaciones y desarrollador, residente en Luanda, Angola.\n    Trabajo en la intersección entre hardware y software: por un lado, proyectos con Arduino y ESP32 (sensores,\n    automatización y sistemas embebidos); por otro, desarrollo web con Django, Flask y PostgreSQL, con\n    proyectos publicados en producción en Vercel."
+
+#: .\templates\josemar_neves.html:150 .\templates\sobre.html:305
+msgid "O que faço"
+msgstr "Qué hago"
+
+#: .\templates\josemar_neves.html:152
+msgid "Montagem e programação de circuitos com Arduino e ESP32"
+msgstr "Montaje y programación de circuitos con Arduino y ESP32"
+
+#: .\templates\josemar_neves.html:153
+msgid "Sistemas de automação residencial e controlo por voz"
+msgstr "Sistemas de domótica y control por voz"
+
+#: .\templates\josemar_neves.html:154
+msgid ""
+"Desenvolvimento de plataformas web em Django (portfólios, sistemas de "
+"agendamento, plataformas de conteúdo)"
+msgstr "Desarrollo de plataformas web con Django (portafolios, sistemas de reservas y plataformas de contenido)"
+
+#: .\templates\josemar_neves.html:155
+msgid "Criação de conteúdo técnico sobre eletrónica e programação"
+msgstr "Creación de contenido técnico sobre electrónica y programación"
+
+#: .\templates\josemar_neves.html:158 .\templates\sobre.html:331
+msgid "Idiomas"
+msgstr "Idiomas"
+
+#: .\templates\josemar_neves.html:159
+msgid ""
+"Português (nativo), Inglês (avançado), Francês (intermédio), Russo (básico)."
+msgstr "Portugués (nativo), inglés (avanzado), francés (intermedio), ruso (básico)."
+
+#: .\templates\josemar_neves.html:161
+msgid "Onde me encontrar"
+msgstr "Dónde encontrarme"
+
+#: .\templates\josemar_neves.html:167
+msgid "contacto"
+msgstr "Contacto"
+
+#: .\templates\pagina.html:118
+msgid "página"
+msgstr "página"
+
+#: .\templates\pagina.html:136 .\templates\post.html:174
+#: .\templates\projeto_detail.html:243
+msgid "atualizado em"
+msgstr "actualizado el"
+
+#: .\templates\projeto_detail.html:199
+msgid "projeto"
+msgstr "proyecto"
+
+#: .\templates\projeto_detail.html:204 .\templates\projeto_detail.html:235
+msgid "ver ao vivo"
+msgstr "Ver en vivo"
+
+#: .\templates\projeto_detail.html:207
+msgid "código-fonte"
+msgstr "Código fuente"
+
+#: .\templates\projeto_detail.html:226
+msgid "tecnologias"
+msgstr "Tecnologías"
+
+#: .\templates\projetos.html:4 .\templates\projetos.html:198
+msgid "Projetos"
+msgstr "Proyectos"
+
+#: .\templates\projetos.html:5
+#, python-format
+msgid ""
+"Projetos de eletrónica, automação e desenvolvimento web de %(nome_site)s."
+msgstr "Proyectos de electrónica, automatización y desarrollo web de %(nome_site)s."
+
+#: .\templates\projetos.html:197
+msgid "portfólio"
+msgstr "Portafolio"
+
+#: .\templates\projetos.html:199
+msgid ""
+"Trabalhos que misturam hardware, firmware e software — do protótipo à versão "
+"que roda de verdade."
+msgstr "Proyectos que combinan hardware, firmware y software: del prototipo a una versión que funciona de verdad."
+
+#: .\templates\projetos.html:210
+msgid "sem imagem"
+msgstr "Sin imagen"
+
+#: .\templates\projetos.html:244
+msgid "nenhum projeto publicado ainda."
+msgstr "Todavía no se ha publicado ningún proyecto."
+
+#: .\templates\sobre.html:3
+msgid "Sobre"
+msgstr "Sobre mí"
+
+#: .\templates\sobre.html:260
+msgid "sobre mim"
+msgstr "Sobre mí"
+
+#: .\templates\sobre.html:263
+msgid ""
+"<strong>Técnico de Eletrónica e Telecomunicações</strong> e\n"
+"        <strong>Desenvolvedor de Software &amp; Web</strong>, baseado em "
+"Luanda, Angola.\n"
+"        Construo desde sistemas embarcados até aplicações web completas."
+msgstr "<strong>Técnico en Electrónica y Telecomunicaciones</strong> y\n        <strong>Desarrollador de software y web</strong>, residente en Luanda, Angola.\n        Construyo desde sistemas embebidos hasta aplicaciones web completas."
+
+#: .\templates\sobre.html:289
+msgid "Quem sou"
+msgstr "Quién soy"
+
+#: .\templates\sobre.html:291
+msgid ""
+"Trabalho na fronteira entre hardware e software: de um lado, sistemas\n"
+"      embarcados com ESP32 e Arduino que ligam o mundo físico à internet;\n"
+"      do outro, aplicações web construídas com Django, Flask e PostgreSQL\n"
+"      que dão vida digital a essas ideias."
+msgstr "Trabajo en la frontera entre hardware y software: por un lado, sistemas\n      embebidos con ESP32 y Arduino que conectan el mundo físico a internet;\n      por otro, aplicaciones web creadas con Django, Flask y PostgreSQL\n      que dan vida digital a esas ideas."
+
+#: .\templates\sobre.html:297
+msgid ""
+"Essa combinação — sinal e código, placa e servidor — é o que guia\n"
+"      a maior parte dos projetos que desenvolvo, desde automação\n"
+"      residencial até plataformas web completas, sempre com deploy\n"
+"      pensado para produção."
+msgstr "Esta combinación —señal y código, placa y servidor— guía\n      la mayoría de los proyectos que desarrollo, desde la domótica\n      hasta plataformas web completas, siempre con el despliegue\n      pensado para producción."
+
+#: .\templates\sobre.html:308
+msgid "hardware"
+msgstr "hardware"
+
+#: .\templates\sobre.html:309
+msgid "Eletrónica & Sistemas Embarcados"
+msgstr "Electrónica y sistemas embebidos"
+
+#: .\templates\sobre.html:310
+msgid "ESP32, Arduino, automação e controlo de dispositivos."
+msgstr "ESP32, Arduino, automatización y control de dispositivos."
+
+#: .\templates\sobre.html:313
+msgid "backend"
+msgstr "backend"
+
+#: .\templates\sobre.html:314
+msgid "Desenvolvimento Web"
+msgstr "Desarrollo web"
+
+#: .\templates\sobre.html:315
+msgid "Django, Flask e PostgreSQL para aplicações completas."
+msgstr "Django, Flask y PostgreSQL para aplicaciones completas."
+
+#: .\templates\sobre.html:318
+msgid "deploy"
+msgstr "despliegue"
+
+#: .\templates\sobre.html:319
+msgid "Infraestrutura"
+msgstr "Infraestructura"
+
+#: .\templates\sobre.html:320
+msgid "Deploy na Vercel, gestão de projetos via Termux."
+msgstr "Despliegue en Vercel y gestión de proyectos desde Termux."
+
+#: .\templates\sobre.html:323
+msgid "conteúdo"
+msgstr "contenido"
+
+#: .\templates\sobre.html:324
+msgid "Criação de Conteúdo"
+msgstr "Creación de contenido"
+
+#: .\templates\sobre.html:325
+msgid "Conteúdo técnico sobre eletrónica e programação."
+msgstr "Contenido técnico sobre electrónica y programación."
+
+#: .\templates\sobre.html:333
+msgid "Português"
+msgstr "Portugués"
+
+#: .\templates\sobre.html:334
+msgid "Inglês"
+msgstr "Inglés"
+
+#: .\templates\sobre.html:335
+msgid "Francês"
+msgstr "Francés"
+
+#: .\templates\sobre.html:336
+msgid "Russo"
+msgstr "Ruso"
+
+#: .\templates\sobre.html:341
+msgid "Tens um projeto em mente ou uma pergunta técnica?"
+msgstr "¿Tienes un proyecto en mente o una pregunta técnica?"
+
+#: .\templates\sobre.html:342
+msgid "falar comigo"
+msgstr "Habla conmigo"

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ imagem.titulo|default:_("Galeria") }} — {{ site.nome_site }}{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="{{ imagem.titulo }} — {{ site.nome_site }}">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ imagem.titulo }} — {{ site.nome_site }}">
+<meta property="og:description" content="{{ imagem.titulo }} — {{ site.nome_site }}">
+{% if imagem.imagem %}<meta property="og:image" content="{{ imagem.imagem.url }}">{% endif %}
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ imagem.titulo }} — {{ site.nome_site }}">
+<meta name="twitter:description" content="{{ imagem.titulo }} — {{ site.nome_site }}">
+{% if imagem.imagem %}<meta name="twitter:image" content="{{ imagem.imagem.url }}">{% endif %}
+{% endblock %}
+
+{% block content %}
+<style>
+  .galeria-detail-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .galeria-detail-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    transition: color 0.2s ease;
+  }
+
+  .galeria-detail-voltar:hover {
+    color: var(--blue-elec);
+  }
+
+  .galeria-detail-foto {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    margin-bottom: 28px;
+  }
+
+  .galeria-detail-foto img {
+    width: 100%;
+    max-height: 640px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .galeria-detail-titulo {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-bottom: 12px;
+  }
+
+  .galeria-detail-data {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .galeria-detail-descricao {
+    color: #c4c7d0;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  .galeria-detail-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .galeria-detail-foto img {
+      max-height: 420px;
+    }
+  }
+</style>
+
+<div class="galeria-detail-wrap">
+
+  <a href="{% url 'galeria' %}" class="galeria-detail-voltar">&larr; {% trans "voltar à galeria" %}</a>
+
+  <div class="galeria-detail-foto">
+    {% if imagem.imagem %}
+    <img src="{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+    {% endif %}
+  </div>
+
+  <h1 class="galeria-detail-titulo">{{ imagem.titulo }}</h1>
+
+  {% if imagem.criado_em %}
+  <p class="galeria-detail-data">
+    {{ imagem.criado_em|date:"d/m/Y" }}
+    {% if imagem.atualizado_em.date != imagem.criado_em.date %}
+    · atualizado em {{ imagem.atualizado_em|date:"d/m/Y" }}
+    {% endif %}
+  </p>
+  {% endif %}
+
+  {% if imagem.descricao_html %}
+  <div class="galeria-detail-descricao">{{ imagem.descricao_html|safe }}</div>
+  {% endif %}
+
+  <div class="galeria-detail-nav">
+    {% if imagem_anterior %}
+      <a href="{% url 'galeria_detail' imagem_anterior.slug %}" class="btn btn-ghost">&larr; {% trans "anterior" %}</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+
+    {% if imagem_seguinte %}
+      <a href="{% url 'galeria_detail' imagem_seguinte.slug %}" class="btn btn-ghost">{% trans "seguinte" %} &rarr;</a>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

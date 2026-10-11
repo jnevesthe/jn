@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Categorias" %} — {% trans "Blog" %} — {{ site.nome_site }}{% endblock %}
+
+{% block meta_description %}{% trans "Categorias de artigos do blog JN Portfolio — eletrónica, programação e projetos práticos." %}{% endblock %}
+
+{% block content %}
+
+<style>
+  .page-header {
+    padding: 60px 24px 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 12px; }
+  .page-header p { color: var(--text-muted); max-width: 560px; }
+
+  .page-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .card-categoria {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    display: block;
+  }
+
+  .card-categoria:hover {
+    border-color: var(--blue-elec);
+    transform: translateY(-4px);
+  }
+
+  .card-categoria h2 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .card-categoria .qtd {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--blue-glow);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 700px) {
+    .grid-categorias { grid-template-columns: repeat(2, 1fr); }
+    .page-header { padding: 40px 20px 30px; }
+    .page-body { padding: 40px 20px 70px; }
+  }
+
+  @media (max-width: 480px) {
+    .grid-categorias { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="page-header">
+  <p class="eyebrow"><a href="{% url 'blog' %}" style="color: var(--blue-glow);">← {% trans "todos os posts" %}</a></p>
+  <h1>{% trans "Categorias" %}</h1>
+  <p>{% trans "Navegue pelos artigos organizados por tema." %}</p>
+</div>
+
+<div class="page-body">
+  {% if categorias %}
+  <div class="grid-categorias">
+    {% for categoria in categorias %}
+    <a href="{% url 'blog_categoria' categoria.slug %}" class="card-categoria">
+      <h2>{{ categoria.nome }}</h2>
+      <p class="qtd">{% blocktrans count post_count=categoria.postblog_set.count %}{{ post_count }} post{% plural %}{{ post_count }} posts{% endblocktrans %}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state"><p>{% trans "nenhuma categoria criada ainda." %}</p></div>
+  {% endif %}
+</div>
+
+{% endblock %}

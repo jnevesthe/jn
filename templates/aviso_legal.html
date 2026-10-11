@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Aviso Legal" %} — {{ site.nome_site }}{% endblock %}
+
+{% block meta_description %}{% blocktrans with nome_site=site.nome_site %}Aviso legal sobre o uso de esquemas elétricos, projetos com Arduino/ESP32 e códigos partilhados em {{ nome_site }}.{% endblocktrans %}{% endblock %}
+
+{% block content %}
+
+<style>
+  .page-header {
+    padding: 60px 24px 40px;
+    max-width: 780px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 12px;
+  }
+
+  .page-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+
+  .page-body h2 {
+    font-size: 1.3rem;
+    margin: 32px 0 14px;
+  }
+
+  .page-body h2:first-child {
+    margin-top: 0;
+  }
+
+  .page-body p {
+    color: #c4c7d1;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .page-body strong {
+    color: var(--text);
+  }
+
+  @media (max-width: 600px) {
+    .page-header { padding: 40px 20px 30px; }
+    .page-body { padding: 30px 20px 70px; }
+  }
+</style>
+
+<div class="page-header">
+  <p class="eyebrow">{% trans "legal" %}</p>
+  <h1>{% trans "Aviso Legal" %}</h1>
+</div>
+
+<div class="page-body">
+  <h2>{% trans "Aviso Legal" %}</h2>
+  <p>
+    {% blocktrans %}Todo o conteúdo técnico partilhado neste site — incluindo esquemas elétricos, montagens com Arduino, ESP32
+    ou outros microcontroladores, códigos-fonte e instruções de projetos — tem fins exclusivamente
+    <strong>didáticos e informativos</strong>. Destina-se a ajudar quem está a aprender eletrónica e programação,
+    não substituindo a formação técnica profissional nem o acompanhamento presencial em contextos que o exijam.{% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans with nome_site=site.nome_site %}A reprodução de qualquer projeto, montagem ou código aqui apresentado é feita <strong>por conta e risco do
+    leitor</strong>. {{ nome_site }} e o autor deste conteúdo não se responsabilizam por curtos-circuitos,
+    danos em componentes ou equipamentos, ferimentos, incêndios ou quaisquer outros acidentes ou prejuízos
+    resultantes da aplicação, incorreta ou não, das informações partilhadas.{% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}Recomenda-se sempre que os leitores sigam as boas práticas de segurança elétrica, verifiquem as
+    especificações técnicas dos componentes utilizados e, em caso de dúvida, procurem orientação de um
+    profissional qualificado antes de reproduzir qualquer projeto.{% endblocktrans %}
+  </p>
+</div>
+
+{% endblock %}

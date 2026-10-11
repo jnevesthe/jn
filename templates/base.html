@@ -1,0 +1,734 @@
+{% load i18n portfolio_extras %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ site.nome_site }}{% endblock %}</title>
+{% block canonical %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% hreflang_urls as hreflang_links %}
+{% for lang_code, lang_name, url in hreflang_links %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="{{ url }}">
+{% endfor %}
+<meta name="description" content="{% block meta_description %}{{ site.descricao_curta }}{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{% if site.logo %}<link rel="icon" href="{{ site.logo.url }}">{% endif %}
+
+<!-- Google -->
+
+
+
+<meta name="google-adsense-account" content="ca-pub-1687261973938075">
+<!-- ===== GOOGLE CONSENT MODE V2 ===== -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Por defeito, nega tudo até a pessoa aceitar no banner
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+<!-- ===== FIM CONSENT MODE ===== -->
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1687261973938075"
+     crossorigin="anonymous"></script>
+
+
+
+
+
+
+<meta name="931f161df21d1aa5dc63b8d23964c619922d7c56" content="931f161df21d1aa5dc63b8d23964c619922d7c56" />
+
+
+
+
+
+<!-- Adsterra -->
+
+
+
+<!-- Adsterra -->
+
+
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12141c;
+    --surface-2: #191c26;
+    --border: #1e2230;
+    --blue-deep: #1a2a5e;
+    --blue-elec: #3d5afe;
+    --blue-glow: #6b7fff;
+    --text: #e4e6ed;
+    --text-muted: #6b7280;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover { color: var(--blue-elec); }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .nav-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .nav-brand .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue-elec);
+    box-shadow: 0 0 8px var(--blue-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--blue-elec);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-more {
+    position: relative;
+  }
+
+  .nav-more-toggle {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav-more-toggle:hover,
+  .nav-more.is-open .nav-more-toggle {
+    color: var(--text);
+  }
+
+  .nav-more-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    min-width: 210px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    list-style: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-more.is-open .nav-more-menu {
+    display: block;
+  }
+
+  .nav-more-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .nav-more-menu a:hover {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    z-index: 110;
+  }
+
+  .nav-toggle:focus-visible,
+  .nav-links a:focus-visible {
+    outline: 2px solid var(--blue-elec);
+    outline-offset: 2px;
+  }
+
+  /* ===== SELETOR DE IDIOMA ===== */
+  .lang-switch select {
+    background: var(--surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 100px;
+    padding: 40px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-inner p {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-links a {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover { color: var(--blue-elec); }
+
+  /* ===== UTILITIES ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: var(--blue-elec);
+    color: #fff;
+    border-color: var(--blue-elec);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue-glow);
+    box-shadow: 0 0 20px rgba(61, 90, 254, 0.4);
+  }
+
+  .btn-ghost {
+    color: var(--text);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--blue-elec);
+    color: var(--blue-elec);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--blue-glow);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--blue-elec);
+  }
+
+  /* ===== MOBILE NAV ===== */
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: calc(100% + 1px);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 24px 16px;
+      align-items: stretch;
+    }
+
+    .nav-links.is-open {
+      display: flex;
+    }
+
+    .nav-links li {
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 4px;
+    }
+
+    .nav-links a::after {
+      display: none;
+    }
+
+    .nav-more {
+      width: 100%;
+    }
+
+    .nav-more-toggle {
+      width: 100%;
+      justify-content: space-between;
+      padding: 14px 4px;
+    }
+
+    .nav-more-menu {
+      display: none;
+      position: static;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+      padding: 0 0 8px 12px;
+    }
+
+    .nav-more.is-open .nav-more-menu {
+      display: block;
+    }
+
+    .nav-more-menu a {
+      padding: 10px 4px;
+    }
+
+    .lang-switch {
+      padding: 14px 4px;
+    }
+
+    .lang-switch select {
+      width: 100%;
+    }
+  }
+
+  #cookie-reject {
+  color: #000;
+  border-color: var(--border);
+}
+
+#cookie-reject:hover {
+  color: #000;
+}
+
+</style>
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+
+
+<div id="cookie-banner" class="cookie-banner">
+  <p class="cookie-banner-text">
+    {% trans "Usamos cookies para melhorar a tua experiência e para publicidade personalizada (Google AdSense e parceiros)." %}
+    {% trans "Consulta a nossa" %}
+    <a href="{% url 'politica_privacidade' %}">{% trans "política de privacidade" %}</a>
+    {% trans "e a" %}
+    <a href="{% url 'cookies' %}">{% trans "política de cookies" %}</a>
+    {% trans "para saberes mais." %}
+  </p>
+  <div class="cookie-banner-actions">
+    <button id="cookie-reject" class="btn btn-ghost">{% trans "Recusar" %}</button>
+    <button id="cookie-accept" class="btn btn-primary">{% trans "Aceitar" %}</button>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 18px 24px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .cookie-banner.is-visible {
+    display: flex;
+  }
+
+  .cookie-banner-text {
+    flex: 1;
+    min-width: 240px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .cookie-banner-text a {
+    color: var(--blue-glow);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cookie-banner-text a:hover {
+    color: var(--blue-elec);
+  }
+
+  .cookie-banner-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .cookie-banner {
+      padding: 16px 20px;
+    }
+    .cookie-banner-actions {
+      width: 100%;
+    }
+    .cookie-banner-actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var CHAVE = 'jn_cookie_consent';
+    var banner = document.getElementById('cookie-banner');
+    var aceitar = document.getElementById('cookie-accept');
+    var recusar = document.getElementById('cookie-reject');
+
+    if (!banner || !aceitar || !recusar) return;
+
+    function gtagConsent(valor) {
+      if (typeof gtag !== 'function') return;
+      gtag('consent', 'update', {
+        'ad_storage': valor,
+        'ad_user_data': valor,
+        'ad_personalization': valor,
+        'analytics_storage': valor
+      });
+    }
+
+    try {
+      var guardado = localStorage.getItem(CHAVE);
+      if (!guardado) {
+        banner.classList.add('is-visible');
+      } else {
+        gtagConsent(guardado === 'aceite' ? 'granted' : 'denied');
+      }
+    } catch (e) {
+      banner.classList.add('is-visible');
+    }
+
+    aceitar.addEventListener('click', function () {
+      try { localStorage.setItem(CHAVE, 'aceite'); } catch (e) {}
+      gtagConsent('granted');
+      banner.classList.remove('is-visible');
+    });
+
+    recusar.addEventListener('click', function () {
+      try { localStorage.setItem(CHAVE, 'recusado'); } catch (e) {}
+      gtagConsent('denied');
+      banner.classList.remove('is-visible');
+    });
+  })();
+</script>
+
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="{% url 'home' %}" class="nav-brand">
+      {% if site.logo %}
+        <img class="nav-logo" src="{{ site.logo.url }}" alt="{{ site.nome_site }}">
+      {% else %}
+        <span class="dot"></span>
+      {% endif %}
+      {{ site.nome_site }}
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+      <li><a href="{% url 'sobre' %}">{% trans "sobre" %}</a></li>
+      <li><a href="{% url 'projetos' %}">{% trans "projetos" %}</a></li>
+      <li><a href="{% url 'blog' %}">{% trans "blog" %}</a></li>
+      <li><a href="{% url 'categorias' %}">{% trans "blog" %} • {% trans "categorias" %}</a></li>
+      <li><a href="{% url 'galeria' %}">{% trans "galeria" %}</a></li>
+      <li><a href="{% url 'contato' %}">{% trans "contato" %}</a></li>
+      <li class="nav-more" id="nav-more">
+        <button class="nav-more-toggle" id="nav-more-toggle" aria-haspopup="true" aria-expanded="false">
+          {% trans "mais" %} <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="nav-more-menu" id="nav-more-menu">
+          <li><a href="{% url 'curriculo' %}">{% trans "currículo" %}</a></li>
+          <li><a href="{% url 'politica_privacidade' %}">{% trans "política de privacidade" %}</a></li>
+          <li><a href="{% url 'cookies' %}">{% trans "política de cookies" %}</a></li>
+          <li><a href="{% url 'termos_uso' %}">{% trans "termos de uso" %}</a></li>
+          <li><a href="{% url 'aviso_legal' %}">{% trans "aviso legal" %}</a></li>
+        </ul>
+      </li>
+      {% if hreflang_links %}
+      <li class="lang-switch">
+        <select aria-label="{% trans 'Idioma' %}" onchange="if (this.value) window.location.href = this.value;">
+          {% for lang_code, lang_name, url in hreflang_links %}
+            <option value="{{ url }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_name }}</option>
+          {% endfor %}
+        </select>
+      </li>
+      {% endif %}
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="{% trans 'Abrir menu' %}" aria-expanded="false" aria-controls="nav-links">☰</button>
+  </nav>
+
+</header>
+
+
+
+<main>
+  {% include 'banner.html' %}
+
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; {% now "Y" %} {{ site.nome_site }} — {% trans "todos os direitos reservados" %}</p>
+
+    <div class="footer-links">
+      <a href="{% url 'contato' %}">{% trans "contato" %}</a>
+      <a href="{% url 'politica_privacidade' %}">{% trans "política de privacidade" %}</a>
+      <a href="{% url 'cookies' %}">{% trans "política de cookies" %}</a>
+      <a href="{% url 'termos_uso' %}">{% trans "termos de uso" %}</a>
+      <a href="{% url 'aviso_legal' %}">{% trans "aviso legal" %}</a>
+    </div>
+
+    <div class="social-links">
+      {% if site.github %}<a href="{{ site.github }}" target="_blank" rel="noopener">github</a>{% endif %}
+      {% if site.linkedin %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin</a>{% endif %}
+      {% if site.instagram %}<a href="{{ site.instagram }}" target="_blank" rel="noopener">instagram</a>{% endif %}
+      {% if site.twitter %}<a href="{{ site.twitter }}" target="_blank" rel="noopener">twitter</a>{% endif %}
+      {% if site.youtube %}<a href="{{ site.youtube }}" target="_blank" rel="noopener">youtube</a>{% endif %}
+      {% if site.tiktok %}<a href="{{ site.tiktok }}" target="_blank" rel="noopener">tiktok</a>{% endif %}
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var links = document.getElementById('nav-links');
+
+    if (!toggle || !links) return;
+
+    function closeMenu() {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }
+
+    function openMenu() {
+      links.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = '✕';
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = links.classList.contains('is-open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // fecha ao clicar num link do menu (exceto o botão "mais")
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // fecha ao clicar fora do menu
+    document.addEventListener('click', function (e) {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // fecha se a tela for redimensionada para desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    // dropdown "mais"
+    var more = document.getElementById('nav-more');
+    var moreToggle = document.getElementById('nav-more-toggle');
+
+    if (more && moreToggle) {
+      moreToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = more.classList.contains('is-open');
+        more.classList.toggle('is-open', !isOpen);
+        moreToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!more.contains(e.target)) {
+          more.classList.remove('is-open');
+          moreToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  })();
+</script>
+
+
+
+
+</body>
+</html>

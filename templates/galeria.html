@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% if page_obj.number > 1 %}{% trans "Galeria" %} — {% trans "Página" %} {{ page_obj.number }} — {{ site.nome_site }}{% else %}{% trans "Galeria" %} — {{ site.nome_site }}{% endif %}{% endblock %}
+
+{% block meta_description %}{% blocktrans with nome_site=site.nome_site %}Galeria de fotos e projetos de {{ nome_site }} — bancada, protótipos e o processo por trás de cada projeto.{% endblocktrans %}{% endblock %}
+
+{% block canonical %}
+{% if page_obj.number == 1 %}
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'galeria' %}">
+{% else %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endif %}
+{% endblock %}
+
+{% block extra_head %}
+{% if page_obj.has_previous %}
+<link rel="prev" href="{{ request.scheme }}://{{ request.get_host }}{% url 'galeria' %}?page={{ page_obj.previous_page_number }}">
+{% endif %}
+{% if page_obj.has_next %}
+<link rel="next" href="{{ request.scheme }}://{{ request.get_host }}{% url 'galeria' %}?page={{ page_obj.next_page_number }}">
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .page-header {
+    padding: 60px 24px 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 12px;
+  }
+
+  .page-header p {
+    color: var(--text-muted);
+    max-width: 560px;
+  }
+
+  .page-body {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .galeria-item {
+    position: relative;
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+
+  .galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(0.4);
+    display: block;
+  }
+
+  .galeria-item:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0);
+  }
+
+  .galeria-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    background: linear-gradient(to top, rgba(10,10,15,0.85), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .galeria-item:hover .galeria-overlay {
+    opacity: 1;
+  }
+
+  .galeria-overlay span {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* ===== PAGINAÇÃO ===== */
+  .paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 60px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .paginacao a, .paginacao span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .paginacao a:hover {
+    border-color: var(--blue-elec);
+    color: var(--blue-elec);
+  }
+
+  .paginacao .atual {
+    background: var(--blue-elec);
+    border-color: var(--blue-elec);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .grid-galeria { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .grid-galeria { grid-template-columns: repeat(2, 1fr); }
+    .page-header { padding: 40px 20px 30px; }
+    .page-body { padding: 40px 20px 70px; }
+  }
+</style>
+
+<div class="page-header">
+  <p class="eyebrow">{% trans "portfólio visual" %}</p>
+  <h1>{% trans "Galeria" %}</h1>
+  <p>{% trans "Bancada, protótipos, placas montadas e o processo por trás de cada projeto." %}</p>
+</div>
+
+<div class="page-body">
+  {% if imagens %}
+  <div class="grid-galeria">
+    {% for img in imagens %}
+    <a href="{% url 'galeria_detail' img.slug %}" class="galeria-item">
+      <img src="{{ img.imagem.url }}" alt="{{ img.titulo }}" loading="lazy">
+      <div class="galeria-overlay"><span>{{ img.titulo }}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if is_paginated %}
+  <div class="paginacao">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" rel="prev">‹</a>
+    {% endif %}
+
+    {% for num in paginator.page_range %}
+      {% if num == page_obj.number %}
+        <span class="atual">{{ num }}</span>
+      {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+        <a href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" rel="next">›</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div class="empty-state">
+    <p>{% trans "nenhuma imagem na galeria ainda." %}</p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

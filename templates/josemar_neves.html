@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Josemar Neves — {% trans "Técnico de Eletrónica e Telecomunicações & Web Developer" %}{% endblock %}
+
+{% block meta_description %}Josemar Neves — Técnico de Eletrónica e Telecomunicações e Web Developer em Luanda, Angola. Projetos com Arduino, ESP32 e desenvolvimento web em Django.{% endblock %}
+
+{% block extra_head %}
+<meta property="og:title" content="Josemar Neves — Técnico de Eletrónica e Telecomunicações & Web Developer">
+<meta property="og:description" content="Josemar Neves — Técnico de Eletrónica e Telecomunicações e Web Developer em Luanda, Angola. Projetos com Arduino, ESP32 e desenvolvimento web em Django.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+{% if site.foto_perfil %}<meta property="og:image" content="{{ site.foto_perfil.url }}">{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Josemar Neves",
+  "jobTitle": "Técnico de Eletrónica e Telecomunicações & Web Developer",
+  "url": "{{ request.build_absolute_uri }}",
+  {% if site.foto_perfil %}"image": "{{ site.foto_perfil.url }}",{% endif %}
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Luanda",
+    "addressCountry": "AO"
+  },
+  "knowsAbout": ["Arduino", "ESP32", "Eletrónica", "Django", "Desenvolvimento Web"],
+  "sameAs": [
+    {% if site.github %}"{{ site.github }}"{% if site.linkedin or site.youtube or site.tiktok %},{% endif %}{% endif %}
+    {% if site.linkedin %}"{{ site.linkedin }}"{% if site.youtube or site.tiktok %},{% endif %}{% endif %}
+    {% if site.youtube %}"{{ site.youtube }}"{% if site.tiktok %},{% endif %}{% endif %}
+    {% if site.tiktok %}"{{ site.tiktok }}"{% endif %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .page-header {
+    padding: 60px 24px 40px;
+    max-width: 780px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .perfil-foto {
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .page-header-texto {
+    flex: 1;
+    min-width: 220px;
+  }
+
+  .page-header-texto h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 12px;
+  }
+
+  .page-header p.subtitulo {
+    color: var(--blue-glow);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+
+  .page-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+
+  .page-body h2 {
+    font-size: 1.3rem;
+    margin: 32px 0 14px;
+  }
+
+  .page-body h2:first-child {
+    margin-top: 0;
+  }
+
+  .page-body p {
+    color: #c4c7d1;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .page-body ul {
+    margin: 0 0 16px 20px;
+    color: #c4c7d1;
+    line-height: 1.8;
+  }
+
+  .page-body strong {
+    color: var(--text);
+  }
+
+  .perfil-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px 20px 30px;
+    }
+    .perfil-foto {
+      width: 160px;
+      height: 160px;
+    }
+    .page-body { padding: 30px 20px 70px; }
+  }
+</style>
+
+<div class="page-header">
+  {% if site.foto_perfil %}
+  <img src="{{ site.foto_perfil.url }}" alt="Josemar Neves" class="perfil-foto">
+  {% endif %}
+  <div class="page-header-texto">
+    <p class="eyebrow">{% trans "perfil" %}</p>
+    <h1>Josemar Neves</h1>
+    <p class="subtitulo">{% trans "Técnico de Eletrónica e Telecomunicações & Web Developer" %} — Luanda, Angola</p>
+  </div>
+</div>
+
+<div class="page-body">
+  <h2>{% trans "Sobre mim" %}</h2>
+  <p>
+    {% blocktrans %}Sou Josemar Neves, Técnico de Eletrónica e Telecomunicações e programador, baseado em Luanda, Angola.
+    Trabalho na intersecção entre hardware e software — de um lado, projetos com Arduino e ESP32 (sensores,
+    automação, sistemas embarcados); do outro, desenvolvimento web com Django, Flask e PostgreSQL, com
+    projetos publicados em produção na Vercel.{% endblocktrans %}
+  </p>
+
+  <h2>{% trans "O que faço" %}</h2>
+  <ul>
+    <li>{% trans "Montagem e programação de circuitos com Arduino e ESP32" %}</li>
+    <li>{% trans "Sistemas de automação residencial e controlo por voz" %}</li>
+    <li>{% trans "Desenvolvimento de plataformas web em Django (portfólios, sistemas de agendamento, plataformas de conteúdo)" %}</li>
+    <li>{% trans "Criação de conteúdo técnico sobre eletrónica e programação" %}</li>
+  </ul>
+
+  <h2>{% trans "Idiomas" %}</h2>
+  <p>{% trans "Português (nativo), Inglês (avançado), Francês (intermédio), Russo (básico)." %}</p>
+
+  <h2>{% trans "Onde me encontrar" %}</h2>
+  <div class="perfil-links">
+    {% if site.github %}<a href="{{ site.github }}" target="_blank" rel="noopener" class="btn btn-ghost">github</a>{% endif %}
+    {% if site.linkedin %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn-ghost">linkedin</a>{% endif %}
+    {% if site.youtube %}<a href="{{ site.youtube }}" target="_blank" rel="noopener" class="btn btn-ghost">youtube</a>{% endif %}
+    {% if site.tiktok %}<a href="{{ site.tiktok }}" target="_blank" rel="noopener" class="btn btn-ghost">tiktok</a>{% endif %}
+    <a href="{% url 'contato' %}" class="btn btn-primary">{% trans "contacto" %}</a>
+  </div>
+</div>
+
+{% endblock %}

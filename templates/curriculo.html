@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Currículo" %} — {{ site.nome_site }}{% endblock %}
+
+{% block meta_description %}{{ pagina.subtitulo|default:pagina.titulo }}{% endblock %}
+
+{% block content %}
+
+<style>
+  .sobre-hero {
+    padding: 80px 24px 60px;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sobre-foto {
+    width: 220px;
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .sobre-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.2);
+  }
+
+  .sobre-intro h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 16px;
+  }
+
+  .sobre-intro p.subtitulo {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 620px;
+  }
+
+  .sobre-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+    font-size: 1rem;
+  }
+
+  .sobre-body p {
+    color: #c4c7d1;
+    margin-bottom: 18px;
+  }
+
+  .sobre-body h2 {
+    font-size: 1.4rem;
+    margin: 36px 0 14px;
+  }
+
+  .sobre-body ul {
+    color: #c4c7d1;
+    margin: 0 0 18px;
+    padding-left: 20px;
+  }
+
+  .sobre-body li {
+    margin-bottom: 8px;
+  }
+
+  .sobre-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .sobre-body pre, .sobre-body code {
+    font-family: var(--font-mono);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .sobre-body pre {
+    padding: 16px;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .sobre-body code {
+    padding: 2px 6px;
+    font-size: 0.85em;
+  }
+
+  .sobre-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 700px) {
+    .sobre-hero {
+      grid-template-columns: 1fr;
+      padding: 50px 20px 40px;
+    }
+    .sobre-foto {
+      width: 140px;
+      height: 140px;
+    }
+    .sobre-body {
+      padding: 40px 20px 70px;
+    }
+  }
+</style>
+
+<div class="sobre-hero">
+  {% if site.foto_perfil %}
+  <div class="sobre-foto">
+    <img src="{{ site.foto_perfil.url }}" alt="{% blocktrans with site_name=site.nome_site %}Foto de Josemar Neves — {{ site_name }}{% endblocktrans %}">
+  </div>
+  {% endif %}
+
+  <div class="sobre-intro">
+    <p class="eyebrow">{% trans "currículo" %}</p>
+    <h1>{{ pagina.titulo }}</h1>
+    {% if pagina.subtitulo %}
+    <p class="subtitulo">{{ pagina.subtitulo }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="sobre-body">
+  {{ pagina.conteudo_html|safe }}
+
+  <div class="sobre-cta">
+    {% if site.curriculo_pdf %}
+    <a href="{{ site.curriculo_pdf.url }}" class="btn btn-primary" target="_blank" rel="noopener">{% trans "baixar em PDF" %}</a>
+    {% endif %}
+    <a href="{% url 'contato' %}" class="btn btn-ghost">{% trans "entrar em contato" %}</a>
+  </div>
+</div>
+
+{% endblock %}

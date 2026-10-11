@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "manage.py": {
+      "maxDuration": 30
+    }
+  }
+}

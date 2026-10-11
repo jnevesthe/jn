@@ -1,0 +1,410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: JN Portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-11 00:41+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Aviso Legal"
+msgstr "Legal Notice"
+
+msgid "Aviso legal sobre o uso de esquemas elétricos, projetos com Arduino/ESP32 e códigos partilhados em %(nome_site)s."
+msgstr "Legal notice about the use of circuit diagrams, Arduino/ESP32 projects, and code shared on %(nome_site)s."
+
+msgid "legal"
+msgstr "Legal"
+
+msgid "Todo o conteúdo técnico partilhado neste site — incluindo esquemas elétricos, montagens com Arduino, ESP32\n    ou outros microcontroladores, códigos-fonte e instruções de projetos — tem fins exclusivamente\n    <strong>didáticos e informativos</strong>. Destina-se a ajudar quem está a aprender eletrónica e programação,\n    não substituindo a formação técnica profissional nem o acompanhamento presencial em contextos que o exijam."
+msgstr "All technical content shared on this site, including circuit diagrams, Arduino and ESP32 builds, other microcontrollers, source code, and project instructions, is for <strong>educational and informational</strong> purposes only. It is intended to help people learn electronics and programming, and does not replace professional technical training or in-person supervision where required."
+
+msgid "A reprodução de qualquer projeto, montagem ou código aqui apresentado é feita <strong>por conta e risco do\n    leitor</strong>. %(nome_site)s e o autor deste conteúdo não se responsabilizam por curtos-circuitos,\n    danos em componentes ou equipamentos, ferimentos, incêndios ou quaisquer outros acidentes ou prejuízos\n    resultantes da aplicação, incorreta ou não, das informações partilhadas."
+msgstr "Reproducing any project, build, or code presented here is done <strong>at the reader's own risk</strong>. %(nome_site)s and the author of this content are not responsible for short circuits, damage to components or equipment, injuries, fires, or any other accidents or losses resulting from the use, correct or otherwise, of the information shared."
+
+msgid "Recomenda-se sempre que os leitores sigam as boas práticas de segurança elétrica, verifiquem as\n    especificações técnicas dos componentes utilizados e, em caso de dúvida, procurem orientação de um\n    profissional qualificado antes de reproduzir qualquer projeto."
+msgstr "Readers should always follow electrical safety best practices, check the technical specifications of the components they use, and seek guidance from a qualified professional whenever in doubt before reproducing any project."
+
+msgid "Usamos cookies para melhorar a tua experiência e para publicidade personalizada (Google AdSense e parceiros)."
+msgstr "We use cookies to improve your experience and deliver personalized advertising (Google AdSense and partners)."
+
+msgid "Consulta a nossa"
+msgstr "See our"
+
+msgid "política de privacidade"
+msgstr "privacy policy"
+
+msgid "e a"
+msgstr "and our"
+
+msgid "política de cookies"
+msgstr "cookie policy"
+
+msgid "para saberes mais."
+msgstr "to learn more."
+
+msgid "Recusar"
+msgstr "Reject"
+
+msgid "Aceitar"
+msgstr "Accept"
+
+msgid "home"
+msgstr "Home"
+
+msgid "sobre"
+msgstr "About"
+
+msgid "projetos"
+msgstr "Projects"
+
+msgid "blog"
+msgstr "Blog"
+
+msgid "categorias"
+msgstr "Categories"
+
+msgid "galeria"
+msgstr "Gallery"
+
+msgid "contato"
+msgstr "Contact"
+
+msgid "mais"
+msgstr "More"
+
+msgid "currículo"
+msgstr "Resume"
+
+msgid "termos de uso"
+msgstr "Terms of Use"
+
+msgid "aviso legal"
+msgstr "Legal Notice"
+
+msgid "Abrir menu"
+msgstr "Open menu"
+
+msgid "todos os direitos reservados"
+msgstr "all rights reserved"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Página"
+msgstr "Page"
+
+msgid "Artigos sobre eletrónica, programação e desenvolvimento web por %(nome_site)s."
+msgstr "Articles about electronics, programming, and web development by %(nome_site)s."
+
+msgid "Artigos"
+msgstr "Articles"
+
+msgid "Anotações sobre hardware, firmware e os bastidores dos projetos."
+msgstr "Notes on hardware, firmware, and the stories behind the projects."
+
+msgid "nenhum post publicado ainda."
+msgstr "No posts have been published yet."
+
+msgid "Artigos sobre %(nome)s — JN Portfolio."
+msgstr "Articles about %(nome)s — JN Portfolio."
+
+msgid "todos os posts"
+msgstr "all posts"
+
+msgid "ler artigo"
+msgstr "read article"
+
+msgid "nenhum post nesta categoria ainda."
+msgstr "There are no posts in this category yet."
+
+msgid "Categorias"
+msgstr "Categories"
+
+msgid "Categorias de artigos do blog JN Portfolio — eletrónica, programação e projetos práticos."
+msgstr "Categories of articles on the JN Portfolio blog about electronics, programming, and practical projects."
+
+msgid "Navegue pelos artigos organizados por tema."
+msgstr "Browse articles organized by topic."
+
+msgid "%(post_count)s post"
+msgid_plural "%(post_count)s posts"
+msgstr[0] "%(post_count)s post"
+msgstr[1] "%(post_count)s posts"
+
+msgid "nenhuma categoria criada ainda."
+msgstr "No categories have been created yet."
+
+msgid "Contato"
+msgstr "Contact"
+
+msgid "Entre em contacto com %(nome_site)s — eletrónica, automação e desenvolvimento web."
+msgstr "Get in touch with %(nome_site)s about electronics, automation, and web development."
+
+msgid "Vamos conversar"
+msgstr "Let's talk"
+
+msgid "Tem um projeto em mente, uma pergunta técnica ou só quer trocar uma ideia sobre hardware? Manda uma mensagem."
+msgstr "Have a project in mind, a technical question, or just want to chat about hardware? Send a message."
+
+msgid "Nome"
+msgstr "Name"
+
+msgid "E-mail"
+msgstr "Email"
+
+msgid "Mensagem"
+msgstr "Message"
+
+msgid "enviar mensagem"
+msgstr "Send message"
+
+msgid "Currículo"
+msgstr "Resume"
+
+msgid "Foto de Josemar Neves — %(site_name)s"
+msgstr "Photo of Josemar Neves — %(site_name)s"
+
+msgid "baixar em PDF"
+msgstr "Download PDF"
+
+msgid "entrar em contato"
+msgstr "Get in touch"
+
+msgid "Galeria"
+msgstr "Gallery"
+
+msgid "Galeria de fotos e projetos de %(nome_site)s — bancada, protótipos e o processo por trás de cada projeto."
+msgstr "A gallery of photos and projects by %(nome_site)s, featuring the workbench, prototypes, and the process behind each project."
+
+msgid "portfólio visual"
+msgstr "visual portfolio"
+
+msgid "Bancada, protótipos, placas montadas e o processo por trás de cada projeto."
+msgstr "Workbench, prototypes, assembled boards, and the process behind each project."
+
+msgid "nenhuma imagem na galeria ainda."
+msgstr "There are no images in the gallery yet."
+
+msgid "voltar à galeria"
+msgstr "back to gallery"
+
+msgid "anterior"
+msgstr "previous"
+
+msgid "seguinte"
+msgstr "next"
+
+msgid "disponível para novos projetos"
+msgstr "Available for new projects"
+
+msgid "Construindo <span class=\"accent\">hardware</span> e software que conversam entre si."
+msgstr "Building <span class=\"accent\">hardware</span> and software that work together."
+
+msgid "ver projetos"
+msgstr "View projects"
+
+msgid "Projetos recentes"
+msgstr "Recent projects"
+
+msgid "ver todos"
+msgstr "View all"
+
+msgid "Nenhum projeto publicado ainda."
+msgstr "No projects have been published yet."
+
+msgid "Sobre o JN Portfolio"
+msgstr "About JN Portfolio"
+
+msgid "O <strong style=\"color: var(--text);\">JN Portfolio</strong> é o espaço onde documento projetos práticos\n        de eletrónica e automação, e partilho o que vou aprendendo em programação e desenvolvimento web.\n        Sou <strong style=\"color: var(--text);\">Josemar Neves</strong>, Técnico de Eletrónica e Telecomunicações\n        e desenvolvedor de software, baseado em Luanda, Angola — e este site nasceu da vontade de mostrar,\n        de forma transparente, o processo por trás de cada montagem: do circuito ao código."
+msgstr "<strong style=\"color: var(--text);\">JN Portfolio</strong> is where I document practical electronics and automation projects and share what I learn about programming and web development.\n        I'm <strong style=\"color: var(--text);\">Josemar Neves</strong>, an electronics and telecommunications technician and software developer based in Luanda, Angola. I created this site to show, transparently, the process behind every build, from circuit to code."
+
+msgid "Aqui vais encontrar <a href=\"%(projetos_url)s\" style=\"color: var(--blue-glow);\">projetos completos</a>\n        com Arduino e ESP32 (sensores, automação, controlo de motores), artigos sobre\n        <a href=\"%(blog_url)s\" style=\"color: var(--blue-glow);\">programação</a> (Python, Java, C++) e\n        eletrónica, além de uma <a href=\"%(galeria_url)s\" style=\"color: var(--blue-glow);\">galeria</a>\n        com fotos reais de bancada, protótipos e o desenvolvimento passo a passo de cada ideia."
+msgstr "Here you'll find <a href=\"%(projetos_url)s\" style=\"color: var(--blue-glow);\">complete projects</a>\n        with Arduino and ESP32 (sensors, automation, motor control), articles on\n        <a href=\"%(blog_url)s\" style=\"color: var(--blue-glow);\">programming</a> (Python, Java, C++), and\n        electronics, as well as a <a href=\"%(galeria_url)s\" style=\"color: var(--blue-glow);\">gallery</a>\n        featuring real workbench photos, prototypes, and the step-by-step development of each idea."
+
+msgid "O objetivo é simples: criar conteúdo técnico útil e honesto para quem está a começar em eletrónica\n        embarcada ou programação, e para quem gosta de acompanhar projetos reais — sem enrolação, direto ao\n        que funciona (e ao que não funcionou à primeira). Queres saber mais sobre o meu percurso?\n        Visita a página <a href=\"%(sobre_url)s\" style=\"color: var(--blue-glow);\">Sobre</a> ou o meu\n        <a href=\"%(curriculo_url)s\" style=\"color: var(--blue-glow);\">Currículo</a>."
+msgstr "The goal is simple: to create useful, honest technical content for people starting out in embedded electronics or programming, and for anyone who enjoys following real projects, without the fluff and focused on what works (and what didn't work the first time). Want to learn more about my background? Visit the <a href=\"%(sobre_url)s\" style=\"color: var(--blue-glow);\">About</a> page or view my <a href=\"%(curriculo_url)s\" style=\"color: var(--blue-glow);\">resume</a>."
+
+msgid "Também publico conteúdo em vídeo — segue o canal"
+msgstr "I also publish videos. Follow the channel"
+
+msgid "Arduino Tech X no YouTube"
+msgstr "Arduino Tech X on YouTube"
+
+msgid "Arduino Tech X"
+msgstr "Arduino Tech X"
+
+msgid "e o"
+msgstr "and"
+
+msgid "para ver os projetos em ação. Tens uma dúvida, sugestão ou queres trocar ideias?\n        <a href=\"%(contato_url)s\" style=\"color: var(--blue-glow);\">Entra em contacto</a>."
+msgstr "to see the projects in action. Have a question or suggestion, or want to share ideas?\n        <a href=\"%(contato_url)s\" style=\"color: var(--blue-glow);\">Get in touch</a>."
+
+msgid "Últimos posts"
+msgstr "Latest posts"
+
+msgid "ver blog"
+msgstr "View blog"
+
+msgid "Nenhum post publicado ainda."
+msgstr "No posts have been published yet."
+
+msgid "ver tudo"
+msgstr "View all"
+
+msgid "Técnico de Eletrónica e Telecomunicações & Web Developer"
+msgstr "Electronics and Telecommunications Technician & Web Developer"
+
+msgid "perfil"
+msgstr "Profile"
+
+msgid "Sobre mim"
+msgstr "About me"
+
+msgid "Sou Josemar Neves, Técnico de Eletrónica e Telecomunicações e programador, baseado em Luanda, Angola.\n    Trabalho na intersecção entre hardware e software — de um lado, projetos com Arduino e ESP32 (sensores,\n    automação, sistemas embarcados); do outro, desenvolvimento web com Django, Flask e PostgreSQL, com\n    projetos publicados em produção na Vercel."
+msgstr "I'm Josemar Neves, an electronics and telecommunications technician and developer based in Luanda, Angola.\n    I work at the intersection of hardware and software: on one side, Arduino and ESP32 projects (sensors,\n    automation, and embedded systems); on the other, web development with Django, Flask, and PostgreSQL, with\n    projects deployed to production on Vercel."
+
+msgid "O que faço"
+msgstr "What I do"
+
+msgid "Montagem e programação de circuitos com Arduino e ESP32"
+msgstr "Building and programming circuits with Arduino and ESP32"
+
+msgid "Sistemas de automação residencial e controlo por voz"
+msgstr "Home automation and voice control systems"
+
+msgid "Desenvolvimento de plataformas web em Django (portfólios, sistemas de agendamento, plataformas de conteúdo)"
+msgstr "Developing web platforms with Django (portfolios, scheduling systems, and content platforms)"
+
+msgid "Criação de conteúdo técnico sobre eletrónica e programação"
+msgstr "Creating technical content about electronics and programming"
+
+msgid "Idiomas"
+msgstr "Languages"
+
+msgid "Português (nativo), Inglês (avançado), Francês (intermédio), Russo (básico)."
+msgstr "Portuguese (native), English (advanced), French (intermediate), Russian (basic)."
+
+msgid "Onde me encontrar"
+msgstr "Where to find me"
+
+msgid "contacto"
+msgstr "Contact"
+
+msgid "página"
+msgstr "page"
+
+msgid "atualizado em"
+msgstr "updated on"
+
+msgid "projeto"
+msgstr "project"
+
+msgid "ver ao vivo"
+msgstr "View live"
+
+msgid "código-fonte"
+msgstr "Source code"
+
+msgid "tecnologias"
+msgstr "Technologies"
+
+msgid "Projetos"
+msgstr "Projects"
+
+msgid "Projetos de eletrónica, automação e desenvolvimento web de %(nome_site)s."
+msgstr "Electronics, automation, and web development projects by %(nome_site)s."
+
+msgid "portfólio"
+msgstr "portfolio"
+
+msgid "Trabalhos que misturam hardware, firmware e software — do protótipo à versão que roda de verdade."
+msgstr "Projects combining hardware, firmware, and software, from prototype to working release."
+
+msgid "sem imagem"
+msgstr "No image"
+
+msgid "nenhum projeto publicado ainda."
+msgstr "No projects have been published yet."
+
+msgid "Sobre"
+msgstr "About"
+
+msgid "sobre mim"
+msgstr "About me"
+
+msgid "<strong>Técnico de Eletrónica e Telecomunicações</strong> e\n        <strong>Desenvolvedor de Software &amp; Web</strong>, baseado em Luanda, Angola.\n        Construo desde sistemas embarcados até aplicações web completas."
+msgstr "<strong>Electronics and Telecommunications Technician</strong> and\n        <strong>Software &amp; Web Developer</strong>, based in Luanda, Angola.\n        I build everything from embedded systems to complete web applications."
+
+msgid "Quem sou"
+msgstr "Who I am"
+
+msgid "Trabalho na fronteira entre hardware e software: de um lado, sistemas\n      embarcados com ESP32 e Arduino que ligam o mundo físico à internet;\n      do outro, aplicações web construídas com Django, Flask e PostgreSQL\n      que dão vida digital a essas ideias."
+msgstr "I work at the boundary between hardware and software: on one side,\n      embedded systems with ESP32 and Arduino that connect the physical world to the internet;\n      on the other, web applications built with Django, Flask, and PostgreSQL\n      that bring these ideas to life online."
+
+msgid "Essa combinação — sinal e código, placa e servidor — é o que guia\n      a maior parte dos projetos que desenvolvo, desde automação\n      residencial até plataformas web completas, sempre com deploy\n      pensado para produção."
+msgstr "This combination of signals and code, boards and servers, guides\n      most of the projects I build, from home automation\n      to complete web platforms, always with production\n      deployment in mind."
+
+msgid "hardware"
+msgstr "hardware"
+
+msgid "Eletrónica & Sistemas Embarcados"
+msgstr "Electronics & Embedded Systems"
+
+msgid "ESP32, Arduino, automação e controlo de dispositivos."
+msgstr "ESP32, Arduino, automation, and device control."
+
+msgid "backend"
+msgstr "backend"
+
+msgid "Desenvolvimento Web"
+msgstr "Web Development"
+
+msgid "Django, Flask e PostgreSQL para aplicações completas."
+msgstr "Django, Flask, and PostgreSQL for complete applications."
+
+msgid "deploy"
+msgstr "deployment"
+
+msgid "Infraestrutura"
+msgstr "Infrastructure"
+
+msgid "Deploy na Vercel, gestão de projetos via Termux."
+msgstr "Deployment on Vercel and project management through Termux."
+
+msgid "conteúdo"
+msgstr "content"
+
+msgid "Criação de Conteúdo"
+msgstr "Content Creation"
+
+msgid "Conteúdo técnico sobre eletrónica e programação."
+msgstr "Technical content about electronics and programming."
+
+msgid "Português"
+msgstr "Portuguese"
+
+msgid "Inglês"
+msgstr "English"
+
+msgid "Francês"
+msgstr "French"
+
+msgid "Russo"
+msgstr "Russian"
+
+msgid "Tens um projeto em mente ou uma pergunta técnica?"
+msgstr "Have a project in mind or a technical question?"
+
+msgid "falar comigo"
+msgstr "Talk to me"

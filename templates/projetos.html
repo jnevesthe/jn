@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% load portfolio_extras i18n %}
+
+{% block title %}{% if page_obj.number > 1 %}{% trans "Projetos" %} — {% trans "Página" %} {{ page_obj.number }} — {{ site.nome_site }}{% else %}{% trans "Projetos" %} — {{ site.nome_site }}{% endif %}{% endblock %}
+{% block meta_description %}{% blocktrans with nome_site=site.nome_site %}Projetos de eletrónica, automação e desenvolvimento web de {{ nome_site }}.{% endblocktrans %}{% endblock %}
+
+{% block canonical %}
+{% if page_obj.number == 1 %}
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'projetos' %}">
+{% else %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endif %}
+{% endblock %}
+
+{% block extra_head %}
+{% if page_obj.has_previous %}
+<link rel="prev" href="{{ request.scheme }}://{{ request.get_host }}{% url 'projetos' %}?page={{ page_obj.previous_page_number }}">
+{% endif %}
+{% if page_obj.has_next %}
+<link rel="next" href="{{ request.scheme }}://{{ request.get_host }}{% url 'projetos' %}?page={{ page_obj.next_page_number }}">
+{% endif %}
+<meta property="og:title" content="Projetos — {{ site.nome_site }}">
+<meta property="og:description" content="Projetos de eletrónica, automação e desenvolvimento web de {{ site.nome_site }}.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+{% if projetos %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for projeto in projetos %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'projeto_detail' projeto.slug %}",
+      "name": "{{ projeto.nome|escapejs }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<style>
+  .page-header {
+    padding: 60px 24px 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 12px;
+  }
+
+  .page-header p {
+    color: var(--text-muted);
+    max-width: 560px;
+  }
+
+  .page-body {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card-projeto {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-projeto:hover {
+    border-color: var(--blue-elec);
+    transform: translateY(-4px);
+  }
+
+  .card-projeto img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.3) brightness(0.85);
+  }
+
+  .card-projeto .no-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body h2 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  .tech-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--blue-glow);
+    background: rgba(61, 90, 254, 0.08);
+    border: 1px solid rgba(61, 90, 254, 0.25);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* ===== PAGINAÇÃO ===== */
+  .paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 60px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .paginacao a, .paginacao span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .paginacao a:hover {
+    border-color: var(--blue-elec);
+    color: var(--blue-elec);
+  }
+
+  .paginacao .atual {
+    background: var(--blue-elec);
+    border-color: var(--blue-elec);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .grid-projetos { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .grid-projetos { grid-template-columns: 1fr; }
+    .page-header { padding: 40px 20px 30px; }
+    .page-body { padding: 40px 20px 70px; }
+  }
+</style>
+
+<div class="page-header">
+  <p class="eyebrow">{% trans "portfólio" %}</p>
+  <h1>{% trans "Projetos" %}</h1>
+  <p>{% trans "Trabalhos que misturam hardware, firmware e software — do protótipo à versão que roda de verdade." %}</p>
+</div>
+
+<div class="page-body">
+  {% if projetos %}
+  <div class="grid-projetos">
+    {% for projeto in projetos %}
+    <a href="{% url 'projeto_detail' projeto.slug %}" class="card-projeto">
+      {% if projeto.imagem %}
+        <img src="{{ projeto.imagem.url }}" alt="{{ projeto.nome }}" loading="lazy">
+      {% else %}
+        <div class="no-image">{% trans "sem imagem" %}</div>
+      {% endif %}
+      <div class="card-body">
+        <h2>{{ projeto.nome }}</h2>
+        <div class="tech-tags">
+          {% for tech in projeto.tecnologias|split_tags %}<span>{{ tech }}</span>{% endfor %}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if is_paginated %}
+  <div class="paginacao">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" rel="prev">‹</a>
+    {% endif %}
+
+    {% for num in paginator.page_range %}
+      {% if num == page_obj.number %}
+        <span class="atual">{{ num }}</span>
+      {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+        <a href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" rel="next">›</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div class="empty-state">
+    <p>{% trans "nenhum projeto publicado ainda." %}</p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
