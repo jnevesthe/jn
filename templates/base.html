@@ -10,7 +10,11 @@
 {% hreflang_urls as hreflang_links %}
 {% for lang_code, lang_name, url in hreflang_links %}
 <link rel="alternate" hreflang="{{ lang_code }}" href="{{ url }}">
+{% if lang_code == "pt" %}<link rel="alternate" hreflang="x-default" href="{{ url }}">{% endif %}
 {% endfor %}
+<meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% elif LANGUAGE_CODE == 'es' %}es_ES{% else %}pt_PT{% endif %}">
+{% for lang_code, lang_name, url in hreflang_links %}{% if lang_code != LANGUAGE_CODE %}<meta property="og:locale:alternate" content="{% if lang_code == 'en' %}en_US{% elif lang_code == 'es' %}es_ES{% else %}pt_PT{% endif %}">
+{% endif %}{% endfor %}
 <meta name="description" content="{% block meta_description %}{{ site.descricao_curta }}{% endblock %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -275,16 +279,90 @@
     outline-offset: 2px;
   }
 
-  /* ===== SELETOR DE IDIOMA ===== */
-  .lang-switch select {
-    background: var(--surface);
-    color: var(--text-muted);
+  /* ===== SELETOR DE IDIOMA COM BANDEIRAS ===== */
+  .flag {
+    display: inline-block;
+    width: 20px;
+    height: 14px;
+    border-radius: 2px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+  .flag-pt { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23ff0000'/%3E%3Crect width='12' height='20' fill='%23006600'/%3E%3Ccircle cx='12' cy='10' r='4' fill='%23ffcc00'/%3E%3Ccircle cx='12' cy='10' r='2.4' fill='%23ffffff'/%3E%3C/svg%3E"); }
+  .flag-en { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23ffffff'/%3E%3Crect y='0.000' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='3.077' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='6.154' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='9.231' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='12.308' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='15.385' width='30' height='1.538' fill='%23b22234'/%3E%3Crect y='18.462' width='30' height='1.538' fill='%23b22234'/%3E%3Crect width='12' height='10.769' fill='%233c3b6e'/%3E%3C/svg%3E"); }
+  .flag-es { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23aa151b'/%3E%3Crect y='5' width='30' height='10' fill='%23f1bf00'/%3E%3C/svg%3E"); }
+
+  .lang-dd { position: relative; }
+
+  .lang-dd-toggle {
+    background: none;
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 6px 8px;
+    color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: 0.8rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .lang-dd-toggle:hover,
+  .lang-dd.is-open .lang-dd-toggle {
+    color: var(--text);
+    border-color: var(--blue-elec);
+  }
+
+  .lang-dd-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 170px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    list-style: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    z-index: 120;
+  }
+
+  .lang-dd.is-open .lang-dd-menu { display: block; }
+
+  .lang-dd-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .lang-dd-menu a::after { display: none; }
+
+  .lang-dd-menu a:hover,
+  .lang-dd-menu a.is-current {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .lang-dd { padding: 12px 4px; }
+    .lang-dd-toggle { width: 100%; justify-content: space-between; }
+    .lang-dd-menu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+      padding: 6px 0 0 0;
+    }
   }
 
   /* ===== FOOTER ===== */
@@ -437,14 +515,6 @@
 
     .nav-more-menu a {
       padding: 10px 4px;
-    }
-
-    .lang-switch {
-      padding: 14px 4px;
-    }
-
-    .lang-switch select {
-      width: 100%;
     }
   }
 
@@ -616,12 +686,24 @@
         </ul>
       </li>
       {% if hreflang_links %}
-      <li class="lang-switch">
-        <select aria-label="{% trans 'Idioma' %}" onchange="if (this.value) window.location.href = this.value;">
+      <li class="lang-dd" id="lang-dd">
+        <button type="button" class="lang-dd-toggle" id="lang-dd-toggle"
+                aria-haspopup="true" aria-expanded="false" aria-label="{% trans 'Idioma' %}">
+          <span class="flag flag-{{ LANGUAGE_CODE }}" aria-hidden="true"></span>
+          <span>{{ LANGUAGE_CODE|upper }}</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="lang-dd-menu">
           {% for lang_code, lang_name, url in hreflang_links %}
-            <option value="{{ url }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_name }}</option>
+          <li>
+            <a href="{{ url }}" hreflang="{{ lang_code }}" lang="{{ lang_code }}"
+               data-lang="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}class="is-current" aria-current="true"{% endif %}>
+              <span class="flag flag-{{ lang_code }}" aria-hidden="true"></span>
+              {{ lang_name }}
+            </a>
+          </li>
           {% endfor %}
-        </select>
+        </ul>
       </li>
       {% endif %}
     </ul>
@@ -727,8 +809,35 @@
   })();
 </script>
 
+<!-- Seletor de idioma com bandeiras -->
+<script>
+  (function () {
+    var dd = document.getElementById('lang-dd');
+    var toggle = document.getElementById('lang-dd-toggle');
+    if (!dd || !toggle) return;
 
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var aberto = dd.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(aberto));
+    });
 
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) {
+        dd.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Guarda a escolha manual (1 ano) para o site não voltar a redirecionar automaticamente
+    dd.querySelectorAll('a[data-lang]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        document.cookie = 'idioma_escolhido=' + a.getAttribute('data-lang') +
+          '; path=/; max-age=31536000; SameSite=Lax';
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
